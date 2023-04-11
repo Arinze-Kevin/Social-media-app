@@ -1,5 +1,8 @@
+import { allPostsQuery } from '../../../utils/queries';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ name: 'Response Success' })
+  if(req.method === 'GET') {
+    const query = allPostsQuery();
+  }
 }
