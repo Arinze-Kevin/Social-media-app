@@ -90,6 +90,9 @@ const upload = () => {
                             )}
                         </div>
                     )}
+                    {wrongFileType && (
+                        <p className='text-center text-xl text-red-400 font-semibold mt-4 w-[250px]'></p>
+                    )}
                 </div>
             </div>
         </div>
