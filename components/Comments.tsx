@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { GoVerified } from 'react-icons/go';
@@ -9,8 +9,8 @@ import  NoResults from './NoResults';
 interface IProps {
     isPostingComment: Boolean,
     comment: string;
-    setComment: () => void;
-    addComment: () => void;
+    setComment: Dispatch<SetStateAction<string>>;
+    addComment: (e: React.FormEvent) => void;
     comments: IComment[];
 }
 
@@ -36,7 +36,7 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
 
         {userProfile && (
             <div className='absolute bottom-0 left-0 pb-6 px-2 md:px-10'>
-                <form onSubmit={() => {}} className='flex gap-4'>
+                <form onSubmit={addComment} className='flex gap-4'>
                     <input
                       value=""
                       onChange={() => {}}
@@ -45,7 +45,7 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
                     />
                     <button 
                       className='text-md text-gray-400'
-                      onClick={() => {}} 
+                      onClick={addComment} 
                     >
                         {isPostingComment ? 'Commenting...' : 'Comment'}
                     </button>
