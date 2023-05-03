@@ -145,7 +145,7 @@ const Upload = () => {
                 />
                 <label className='text-md font-medium'>
                     Choose a Category
-                </label>
+                </label> 
                 <select 
                   onChange={(e) => setCategory(e.target.value)}
                   className='outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer'
